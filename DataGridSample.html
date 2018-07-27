@@ -1,0 +1,6 @@
+<div class="content-wrapper">
+    <div class="container-fluid backgroud-color">
+
+        <DataGrid [columnNames]="ColumnNames" [itemsSource]="VouchersList" (SelectedItem)="GetSelectedItem($event)" (SelectedEditItem)="EditItemClick($event)" (AllItems)="GetAllItems($event)" [DisplaySelectColumn]="true" [DisplayEditColumn]="true" [DisplayDeleteColumn]="true"></DataGrid>
+</div>
+</div>
