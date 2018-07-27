@@ -1,0 +1,42 @@
+<div class="pull-right small ">
+    <select name="pageSize" (change)="pageSize_Change($event.target.value)" class="pull-right ">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="25">25</option>
+    </select>
+
+    <div class="pull-left">Total Records: {{allrecords.length}} &nbsp;</div>
+</div>
+<div class="pull-left small">
+    <input type="text" name="txtSearchDataGrid" [(ngModel)]="search" (input)="txtSearchDataGrid_Change($event.target.value)" /> {{searchedRecordsCount}} searched records
+</div>
+<div class="clearfix"></div>
+<table class="table table-bordered data-grid table-hover">
+    <tr>
+        <ng-container *ngFor="let col of columnNames">
+            <th>{{col.Header}}</th>
+        </ng-container>
+        <th>Actions</th>
+    </tr>
+
+
+    <ng-container *ngFor="let row of itemsSource;let i = index;">
+        <tr>
+            <ng-container *ngFor="let col of columnNames">
+                <td>{{row[col.ColumnName]}}</td>
+            </ng-container>
+            <td>
+                <button *ngIf="DisplaySelectColumn==true" class="btn btn-sm btn-info" (click)="SelectRow(row)">select</button>
+                <button *ngIf="DisplayEditColumn==true" class="btn btn-sm btn-warning" (click)="SelectRow_Edit(row)">edit</button>
+                <button *ngIf="DisplayDeleteColumn==true" class="btn btn-sm btn-danger" (click)="DeleteRow(i)">delete</button>
+            </td>
+        </tr>
+    </ng-container>
+
+</table>
+<div class="local-grid-pagging" *ngIf="search.length==0">
+    <button (click)="Previous_Click()" [disabled]="currentPage==1" class="btn btn-primary btn-sm">Previous</button>
+    <p class="text-primary">Page <strong>{{currentPage}}</strong> of {{totalPages}} </p>
+    <button (click)="Next_Click()" class="btn btn-primary btn-sm" [disabled]="currentPage==totalPages">Next</button>
+</div>
