@@ -1,9 +1,9 @@
 import { Input, Component, OnInit, EventEmitter, Output } from "@angular/core";
-import { endianness } from "os";
+
 
 @Component({
     selector: 'DataGrid',
-    templateUrl:'app/Shared/DataGrid.html'
+    templateUrl:'./DataGrid.html'
 })
 
 export class DataGrid implements OnInit {

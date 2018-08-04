@@ -1,6 +1,6 @@
-import { IDataGrid } from "../../Shared/IDataGrid";
-import { VoucherModel } from "../../Model/voucher.model";
-import { DataGridColumn } from "../../Shared/DataGrid";
+import { IDataGrid } from "../IDataGrid";
+import { VoucherModel } from "../Model/voucher.model";
+import { DataGridColumn } from "../DataGrid";
 import { Component } from "@angular/core";
 
 @Component({
@@ -22,8 +22,8 @@ export class DataGridSampleComponent implements IDataGrid {
 
         for (var i = 1; i <= 25; i++) {
             let vModel2: VoucherModel = new VoucherModel();
-            vModel2.VoucherId = "oiu" + i;
-            vModel2.AccountCode = "778" + i;
+            vModel2.VoucherId = "ID" + i;
+            vModel2.AccountCode = "000" + i;
             this.VouchersList.push(vModel2);
         }
     }
