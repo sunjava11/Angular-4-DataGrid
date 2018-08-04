@@ -4,7 +4,7 @@ import { DataGridColumn } from "../../Shared/DataGrid";
 import { Component } from "@angular/core";
 
 @Component({
-    templateUrl: 'app/Components/Sample/DataGridSample.html'
+    templateUrl: './DataGridSample.html'
 })
 
 
